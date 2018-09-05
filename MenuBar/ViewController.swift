@@ -28,10 +28,8 @@ class ViewController: UIViewController {
         // Add segments
         self.segmentedControl.insertSegment(withTitle: "first view", at: 0, animated: true)
         self.segmentedControl.insertSegment(withTitle: "second view", at: 1, animated: true)
-        
         // First segment is selected by default
         self.segmentedControl.selectedSegmentIndex = 0
-        
         //constraints
         self.segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         // Add the segmented control to the container view
@@ -40,22 +38,14 @@ class ViewController: UIViewController {
         self.segmentedControl.topAnchor.constraint(equalTo:  segmentControlView.topAnchor).isActive = true
         self.segmentedControl.widthAnchor.constraint(equalTo:  segmentControlView.widthAnchor).isActive = true
         self.segmentedControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
         //clear backgroud color
         self.segmentedControl.backgroundColor = .clear
         self.segmentedControl.tintColor = .clear
         //change color and font
         //when not selected
-        self.segmentedControl.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Arial", size: 13)!,
-            NSAttributedStringKey.foregroundColor: UIColor.lightGray
-            ], for: .normal)
+        self.segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Arial", size: 13)!,NSAttributedStringKey.foregroundColor: UIColor.lightGray], for: .normal)
         //when selected
-        self.segmentedControl.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Arial", size: 13)!,
-            NSAttributedStringKey.foregroundColor: UIColor.red
-            ], for: .selected)
-        
+        self.segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Arial", size: 13)!,NSAttributedStringKey.foregroundColor: UIColor.red], for: .selected)
         //button bar
         buttonBar.translatesAutoresizingMaskIntoConstraints = false
         buttonBar.backgroundColor = UIColor.red
@@ -70,7 +60,6 @@ class ViewController: UIViewController {
         buttonBar.heightAnchor.constraint(equalToConstant: 3).isActive = true
         buttonBar.leftAnchor.constraint(equalTo: self.segmentedControl.leftAnchor).isActive = true
         buttonBar.widthAnchor.constraint(equalTo: self.segmentedControl.widthAnchor, multiplier: 1 / CGFloat(self.segmentedControl.numberOfSegments)).isActive = true
-        
         //add childs to move between view controllers
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         firstView = storyboard.instantiateViewController(withIdentifier: "firstView")
@@ -104,12 +93,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         SegmentControl()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
